@@ -1,0 +1,28 @@
+# spring configuration
+
+spring:
+  application:
+    name: hello-ec2
+
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+  thymeleaf:
+    check-template-location: true
+    mode: HTML
+    prefix: classpath:templates/
+    suffix: .html
+    encoding: UTF-8
+    cache: false
+
+# server configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: utf-8
+      enabled: true

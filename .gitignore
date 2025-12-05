@@ -1,0 +1,47 @@
+## Maven/Gradle
+**/target
+**/.gradle/
+**/settings.gradle
+**/build/
+**/out
+
+## STS/Eclipse IDE
+**/.apt_generated
+**/.classpath
+**/.factorypath
+**/.project
+**/.settings
+**/.springBeans
+**/.sts4-cache
+
+## IntelliJ IDE
+**/.idea
+**/*.iws
+**/*.iml
+**/*.ipr
+
+## VS Code IDE
+**/.vscode
+**/.suo
+**/.ntvs*
+**/.njsproj
+**/.sln
+**/.sw?
+
+### NetBeans ###
+**/nbproject/private/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+## JavaScript Project
+**/node_modules
+**/public/bundle.js
+**/public/main.js
+**/public/assets
+
+## Mac
+**/.DS_Store
