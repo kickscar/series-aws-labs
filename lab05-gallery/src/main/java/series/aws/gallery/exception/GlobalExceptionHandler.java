@@ -29,7 +29,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public String handler(HttpServletRequest request, HttpServletResponse response, Exception e) throws Exception {
-        // logging
         StringWriter errors = new StringWriter();
         e.printStackTrace(new PrintWriter(errors));
         log.error(errors.toString());
