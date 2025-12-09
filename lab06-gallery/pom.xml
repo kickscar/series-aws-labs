@@ -19,6 +19,7 @@
 
     <properties>
         <java.version>21</java.version>
+        <build.finalName>${project.artifactId}-${project.version}</build.finalName>
     </properties>
 
     <dependencies>
@@ -59,6 +60,7 @@
     </dependencies>
 
     <build>
+        <finalName>${build.finalName}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
