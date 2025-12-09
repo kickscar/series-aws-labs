@@ -22,7 +22,8 @@ server:
     context-path: /
 
 logging:
-  config: classpath:logback.xml
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
 
 
 ---
@@ -43,6 +44,9 @@ spring:
 server:
   port: 8080
 
+logging:
+  level:
+    root: INFO
 
 ---
 # production configuration
