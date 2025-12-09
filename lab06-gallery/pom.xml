@@ -12,9 +12,9 @@
     </parent>
 
     <groupId>series.aws</groupId>
-    <artifactId>lab05-gallery</artifactId>
+    <artifactId>lab06-gallery</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lab05-gallery</name>
+    <name>lab06-gallery</name>
     <description>gallery</description>
 
     <properties>

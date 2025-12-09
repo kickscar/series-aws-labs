@@ -21,6 +21,9 @@ server:
   servlet:
     context-path: /
 
+logging:
+  config: classpath:logback.xml
+
 
 ---
 # development configuration
@@ -40,12 +43,6 @@ spring:
 server:
   port: 8080
 
-logging:
-  pattern:
-    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
-  level:
-    root: INFO
-
 
 ---
 # production configuration
@@ -61,19 +58,6 @@ server:
   port: 80
 
 logging:
-  pattern:
-    file: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
-  logback:
-    rollingpolicy:
-      file-name-pattern: "logs/${spring.application.name}.%d{yyyy-MM-dd}.%i.log.zip"
-      max-file-size: 50MB
-      max-history: 10
-      total-size-cap: 10GB
-  file:
-    name: logs/${spring.application.name}-error.log
   level:
-    root: OFF
-    aws:
-      gallery:
-         exception: ERROR
-  config: classpath:config/logback-spring.xml
+    root: WARN
+
