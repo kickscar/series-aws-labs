@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty name="APPLICATION_NAME" source="spring.application.name" />
+    <springProperty name="SPRING_PROFILES_ACTIVE" source="spring.profiles.active" defaultValue="development"/>
+    <springProperty name="LOGGING_OPS_LEVEL" source="logging.ops.level" defaultValue="INFO"/>
+    <springProperty name="LOGGING_OPS_PATH" source="logging.ops.path" defaultValue="logs"/>
+
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGGING_OPS_PATH}/${APPLICATION_NAME}.log</file>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <includeMdc>true</includeMdc>
+            <includeContext>true</includeContext>
+            <customFields>
+                {"application_name": "${APPLICATION_NAME}", "profiles_active":"${SPRING_PROFILES_ACTIVE}"}
+            </customFields>
+            <fieldNames>
+                <timestamp>timestamp</timestamp>
+                <level>severity</level>
+                <message>message</message>
+                <thread>thread</thread>
+                <logger>logger</logger>
+            </fieldNames>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>${LOGGING_OPS_PATH}/${APPLICATION_NAME}.%i.log.zip</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>10</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>100MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <root level="${LOGGING_OPS_LEVEL}">
+        <appender-ref ref="fileAppender" />
+    </root>
+
+</configuration>

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: gallery
+    name: lab06-gallery
   profiles:
     active: development
 
@@ -23,7 +23,9 @@ server:
 
 logging:
   pattern:
-    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
+  level:
+    root: INFO
 
 
 ---
@@ -44,9 +46,6 @@ spring:
 server:
   port: 8080
 
-logging:
-  level:
-    root: INFO
 
 ---
 # production configuration
@@ -62,6 +61,9 @@ server:
   port: 80
 
 logging:
-  level:
-    root: WARN
+  config: classpath:logback-production.xml
+  ops:
+    level: WARN
+
+
 
