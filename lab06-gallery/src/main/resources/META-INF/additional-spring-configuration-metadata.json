@@ -3,10 +3,6 @@
     {
       "name": "logging.ops.level",
       "type": "java.lang.String"
-    },
-    {
-      "name": "logging.ops.path",
-      "type": "java.lang.String"
     }
   ]
 }

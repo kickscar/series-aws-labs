@@ -3,10 +3,9 @@
     <springProperty name="APPLICATION_NAME" source="spring.application.name" />
     <springProperty name="SPRING_PROFILES_ACTIVE" source="spring.profiles.active" defaultValue="development"/>
     <springProperty name="LOGGING_OPS_LEVEL" source="logging.ops.level" defaultValue="INFO"/>
-    <springProperty name="LOGGING_OPS_PATH" source="logging.ops.path" defaultValue="/var/log"/>
 
     <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOGGING_OPS_PATH}/${APPLICATION_NAME}.log</file>
+        <file>./logs/${APPLICATION_NAME}.log</file>
         <encoder class="net.logstash.logback.encoder.LogstashEncoder">
             <includeMdc>true</includeMdc>
             <includeContext>true</includeContext>
@@ -22,7 +21,7 @@
             </fieldNames>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <FileNamePattern>${LOGGING_OPS_PATH}/${APPLICATION_NAME}.%i.log.zip</FileNamePattern>
+            <FileNamePattern>./logs/${APPLICATION_NAME}.%i.log.zip</FileNamePattern>
             <MinIndex>1</MinIndex>
             <MaxIndex>10</MaxIndex>
         </rollingPolicy>
