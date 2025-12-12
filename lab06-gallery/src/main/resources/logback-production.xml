@@ -3,7 +3,7 @@
     <springProperty name="APPLICATION_NAME" source="spring.application.name" />
     <springProperty name="SPRING_PROFILES_ACTIVE" source="spring.profiles.active" defaultValue="development"/>
     <springProperty name="LOGGING_OPS_LEVEL" source="logging.ops.level" defaultValue="INFO"/>
-    <springProperty name="LOGGING_OPS_PATH" source="logging.ops.path" defaultValue="logs"/>
+    <springProperty name="LOGGING_OPS_PATH" source="logging.ops.path" defaultValue="/var/log"/>
 
     <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOGGING_OPS_PATH}/${APPLICATION_NAME}.log</file>

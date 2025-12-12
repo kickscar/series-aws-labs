@@ -64,6 +64,7 @@ logging:
   config: classpath:logback-production.xml
   ops:
     level: WARN
+    path: /var/log
 
 
 
